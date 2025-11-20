@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bully Motos Valencia | Taller Premium</title>
+    <link rel="icon" type="image/png" href="img/logoIco.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES Y COLORES --- */
+        :root {
+            --bully-red: #e31e24;
+            --bully-dark-red: #b00e13;
+            --dark-header: rgba(15, 15, 15, 0.95);
+            --bg-color: #f4f4f4;
+            --text-dark: #222;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            /* Desplazamiento suave al navegar */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER PRO --- */
+        header {
+            background: var(--dark-header);
+            height: 90px;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--bully-red);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-badge {
+            background-color: #ffffff;
+            padding: 8px 25px;
+            border-radius: 4px;
+            transform: skew(-15deg);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 55px;
+            transform: skew(15deg);
+        }
+
+        .logo-badge:hover {
+            transform: skew(-15deg) scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+
+        /* NAVEGACIÓN */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--bully-red);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--bully-red);
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* BOTÓN CITA */
+        .btn-header {
+            background-color: var(--bully-red);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transform: skew(-15deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 2px solid var(--bully-red);
+            white-space: nowrap;
+            margin-left: 20px;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            /* Añadido cursor pointer */
+        }
+
+        .btn-header span {
+            transform: skew(15deg);
+            display: inline-block;
+        }
+
+        .btn-header:hover {
+            background-color: transparent;
+            color: var(--bully-red);
+            box-shadow: 0 0 15px var(--bully-red);
+            transform: skew(-15deg) translateY(-3px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background: radial-gradient(circle at center, rgba(20, 20, 20, 0.5) 0%, rgba(0, 0, 0, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 0;
+            transition: background-position 0.1s linear;
+        }
+
+        .hero-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .hero-text {
+            flex: 1;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-logo-big {
+            width: 350px;
+            max-width: 80%;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 50px rgba(255, 255, 255, 1)) drop-shadow(0 0 100px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 150px rgba(255, 255, 255, 0.5));
+            animation: latido 3s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+            border-left: 4px solid var(--bully-red);
+            padding-left: 20px;
+        }
+
+        .hero-btn-main {
+            background: linear-gradient(45deg, var(--bully-red), #ff4b50);
+            color: white;
+            padding: 20px 50px;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            border-radius: 4px;
+            transform: skew(-10deg);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(227, 30, 36, 0.3);
+            cursor: pointer;
+        }
+
+        .hero-btn-main:hover {
+            transform: skew(-10deg) scale(1.1);
+            box-shadow: 0 0 30px var(--bully-red);
+        }
+
+        .hero-bike-3d {
+            flex: 1.5;
+            z-index: 3;
+            background-image: url('https://purepng.com/public/uploads/large/purepng.com-grey-yamaha-yzf-r6-motorcyclemotorcyclemotorbikeyamaha-yzf-r6yamaha-sport-bike-65152121034269h8u.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 600px;
+            filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.8));
+            animation: flotar 4s ease-in-out infinite;
+            transition: transform 0.08s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        /* --- SERVICIOS --- */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--bg-color);
+            position: relative;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        }
+
+        .section-header {
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+        }
+
+        .section-header span {
+            color: var(--bully-red);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.6s ease;
+            border: 1px solid #eee;
+            position: relative;
+            top: 0;
+        }
+
+        .card:hover {
+            top: -15px;
+            box-shadow: 0 20px 40px rgba(227, 30, 36, 0.2);
+            border-color: var(--bully-red);
+            transform: scale(1.03);
+        }
+
+        .card-header {
+            background: var(--bully-red);
+            color: white;
+            padding: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        .card-body {
+            padding: 30px 20px 40px 20px;
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            color: var(--bully-red);
+            margin-bottom: 20px;
+            transition: transform 0.8s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: rotateY(360deg);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- BANNER --- */
+        .red-banner {
+            background: var(--bully-red);
+            color: white;
+            padding: 40px 0;
+            margin-top: 80px;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            transform: skewY(-3deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid white;
+            border-bottom: 5px solid white;
+        }
+
+        .red-banner>* {
+            transform: skewY(3deg);
+        }
+
+        .hover-icon {
+            font-size: 2rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .hover-icon:hover {
+            transform: scale(1.4) rotate(15deg);
+        }
+
+        /* --- CONTACTO --- */
+        .contact-section {
+            display: flex;
+            background: white;
+            padding: 60px;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-map {
+            flex: 1;
+            height: 400px;
+            background: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 300px;
+        }
+
+        /* --- MODAL DE RESERVA (NUEVO) --- */
+        .modal-overlay {
+            display: none;
+            /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            /* Por encima del header */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--bully-red);
+        }
+
+        .modal-active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--bully-red);
+        }
+
+        .modal-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #222;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--bully-red);
+            background-color: #fff;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--bully-red);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--bully-dark-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(227, 30, 36, 0.3);
+        }
+
+        /* Animaciones */
+        @keyframes flotar {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes latido {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+                height: auto;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo-badge {
+                margin-bottom: 10px;
+            }
+
+            .nav-container {
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+                font-size: 0.8rem;
+            }
+
+            .btn-header {
+                display: none;
+            }
+
+            .hero {
+                height: auto;
+                padding: 150px 0 100px 0;
+                text-align: center;
+            }
+
+            .hero-container {
+                flex-direction: column;
+            }
+
+            .hero-bike-3d {
+                height: 300px;
+                width: 100%;
+                margin-top: 50px;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .section-header {
+                font-size: 2.2rem;
+            }
+
+            .red-banner {
+                flex-direction: column;
+                gap: 20px;
+                transform: none;
+                padding: 30px;
+                text-align: center;
+            }
+
+            .red-banner>* {
+                transform: none;
+            }
+
+            .contact-section {
+                padding: 30px;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#hero-section" class="logo-badge">
+            <img src="img/logoLargo.png" alt="Bully Motos" class="logo-img">
+        </a>
+
+        <div class="nav-container">
+            <a href="#hero-section" class="nav-link">El Taller</a>
+            <a href="#services" class="nav-link">Servicios</a>
+            <a href="#contact" class="nav-link">Contacto</a>
+
+            <div class="btn-header open-modal-btn">
+                <span><i class="fas fa-calendar-alt"></i> Cita Previa</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <div class="hero-container">
+            <div class="hero-text" data-aos="fade-right" data-aos-duration="800">
+                <img src="img/logo.png" alt="Bully Motos Logo Big" class="hero-logo-big">
+
+                <div class="hero-subtitle">
+                    Tu taller de confianza en Valencia.<br>
+                    <strong>Pasión. Precisión. Potencia.</strong>
+                </div>
+
+                <div class="hero-btn-main open-modal-btn">
+                    RESERVAR AHORA
+                </div>
+            </div>
+
+            <div class="hero-bike-3d" id="moto3d" data-aos="zoom-out" data-aos-duration="1000"></div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <h2 class="section-header" data-aos="fade-up">Servicios <span>Premium</span></h2>
+
+        <div class="cards-container">
+            <div class="card" data-aos="flip-left" data-aos-delay="100">
+                <div class="card-header">Taller</div>
+                <div class="card-body">
+                    <i class="fas fa-wrench card-icon"></i>
+                    <h3>Mecánica General</h3>
+                    <p>Revisiones oficiales, pre-ITV y puesta a punto integral.</p>
+                </div>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="200">
+                <div class="card-header">Electrónica</div>
+                <div class="card-body">
+                    <i class="fas fa-laptop-code card-icon"></i>
+                    <h3>Diagnosis Digital</h3>
+                    <p>Tecnología avanzada para detectar y borrar fallos al instante.</p>
+                </div>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="300">
+                <div class="card-header">Racing</div>
+                <div class="card-body">
+                    <i class="fas fa-flag-checkered card-icon"></i>
+                    <h3>Preparaciones</h3>
+                    <p>Escapes, centralitas y suspensiones para circuito.</p>
+                </div>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="400">
+                <div class="card-header">Neumáticos</div>
+                <div class="card-body">
+                    <i class="fas fa-circle-notch card-icon"></i>
+                    <h3>Neumáticos</h3>
+                    <p>Las mejores marcas con montaje y equilibrado de precisión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="red-banner" data-aos="zoom-in">
+        <span><i class="fas fa-phone-volume"></i> 963 46 50 24</span>
+        <span>¿TU MOTO PIDE GAS?</span>
+        <div>
+            <a href="https://wa.me/34722178240" target="_blank" style="color: white; text-decoration: none;">
+                <i class="fab fa-whatsapp hover-icon"></i>
+            </a>
+            <a href="https://www.instagram.com/bully_motos/" target="_blank"
+                style="color: white; text-decoration: none;">
+                <i class="fab fa-instagram hover-icon" style="margin-left: 20px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <section class="contact-section" id="contact" data-aos="fade-up">
+        <div class="contact-info">
+            <h2 style="margin-bottom: 10px; font-size: 2.5rem; text-transform: uppercase;">Visítanos</h2>
+            <div style="width: 50px; height: 5px; background: var(--bully-red); margin-bottom: 30px;"></div>
+
+            <h3 style="color: var(--bully-red); font-size: 1.5rem;">Bully Motos Valencia</h3>
+
+            <p style="font-size: 1.2rem; margin-top: 20px; line-height: 1.8; color: #444;">
+                <i class="fas fa-map-marker-alt" style="color: var(--bully-red); margin-right: 15px;"></i>
+                <strong>Camí de Montcada, 40</strong><br>
+                <span style="margin-left: 35px;">46009 València, Valencia</span>
+            </p>
+
+            <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">
+                <i class="fas fa-envelope" style="color: var(--bully-red); margin-right: 15px;"></i>
+                <a href="mailto:bullymotos78@gmail.com"
+                    style="color: #444; text-decoration: none;">bullymotos78@gmail.com</a>
+            </p>
+
+
+            <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">
+                <i class="fas fa-phone" style="color: var(--bully-red); margin-right: 15px;"></i>
+                <a href="tel:+34963465024" style="color: #444; text-decoration: none;">963 46 50 24</a>
+            </p>
+
+            <p style="font-size: 1.2rem; margin-top: 15px; color: #444;">
+                <i class="fas fa-clock" style="color: var(--bully-red); margin-right: 15px;"></i>
+                Lunes a Viernes: 09:00-14:00 15:00-20:00
+            </p>
+        </div>
+
+        <div class="contact-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.439083668206!2d-0.3809148233657065!3d39.48197011944569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4591791949%3A0xc713299040317996!2sCam%C3%AD%20de%20Montcada%2C%2040%2C%20La%20Sa%C3%AFdia%2C%2046009%20Val%C3%A8ncia%2C%20Valencia!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer style="background: #111; color: #666; text-align: center; padding: 30px; font-size: 0.8rem;">
+        <p>© 2025 Bully Motos. Todos los derechos reservados. Gas a fondo.</p>
+    </footer>
+
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Reserva tu Cita</h2>
+
+            <form id="bookingForm" action="https://formsubmit.co/bullymotos78@gmail.com" method="POST">
+                <!-- FormSubmit configuración -->
+                <input type="hidden" name="_subject" value="Nueva Reserva - Bully Motos">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="Nombre" class="form-control" placeholder="Ej: Juan Pérez"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono de Contacto</label>
+                    <input type="tel" id="phone" name="Teléfono" class="form-control" placeholder="Ej: 600 123 456"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="Email" class="form-control" placeholder="Ej: ejemplo@gmail.com"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Motivo de la Cita</label>
+                    <textarea id="reason" name="Motivo" class="form-control"
+                        placeholder="Ej: Revisión, Ruido extraño, Cambio de neumáticos..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="urgency">Nivel de Urgencia</label>
+                    <select id="urgency" name="Urgencia" class="form-control">
+                        <option value="leve">Leve (Mantenimiento normal)</option>
+                        <option value="media">Media (Fallo molesto)</option>
+                        <option value="alta" style="color:red; font-weight:bold;">Alta (No puedo circular)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirmar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // CONFIGURACIÓN MEJORADA DE ANIMACIONES
+        AOS.init({
+            once: false,
+            mirror: true,
+            offset: 120,
+            duration: 800,
+            easing: 'ease-out-back',
+        });
+
+        // SCRIPT PARALLAX MOUSE
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                const heroSection = document.getElementById('hero-section');
+                const moto = document.getElementById('moto3d');
+
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+                const mouseX = e.pageX - centerX;
+                const mouseY = e.pageY - centerY;
+
+                const bgMoveX = -mouseX / 40;
+                const bgMoveY = -mouseY / 40;
+                heroSection.style.backgroundPosition = `calc(50% + ${bgMoveX}px) calc(50% + ${bgMoveY}px)`;
+
+                const motoMoveX = mouseX / 25;
+                const motoMoveY = mouseY / 25;
+                moto.style.transform = `translateX(${motoMoveX}px) translateY(${motoMoveY}px)`;
+            }
+        });
+
+        // SCRIPT DEL MODAL (POP-UP)
+        const modal = document.getElementById('bookingModal');
+        const closeBtn = document.getElementById('closeModal');
+        // Seleccionamos todos los botones que deben abrir el modal (Header y Hero)
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+
+        // Añadir evento click a todos los botones de abrir
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita comportamiento por defecto de enlaces
+                modal.classList.add('modal-active');
+            });
+        });
+
+        // Cerrar con la X
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('modal-active');
+        });
+
+        // Cerrar haciendo clic fuera de la caja blanca
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('modal-active');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
