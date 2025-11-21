@@ -1,0 +1,108 @@
+/* === HEADER NAVIGATION === */
+header {
+    background: var(--dark-header);
+    height: 90px;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--bully-red);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo-badge {
+    background-color: #ffffff;
+    padding: 8px 25px;
+    border-radius: 4px;
+    transform: skew(-15deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 55px;
+    transform: skew(15deg);
+}
+
+.logo-badge:hover {
+    transform: skew(-15deg) scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    position: relative;
+    padding: 5px 0;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--bully-red);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--bully-red);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-header {
+    background-color: var(--bully-red);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transform: skew(-15deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    border: 2px solid var(--bully-red);
+    white-space: nowrap;
+    margin-left: 20px;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn-header span {
+    transform: skew(15deg);
+    display: inline-block;
+}
+
+.btn-header:hover {
+    background-color: transparent;
+    color: var(--bully-red);
+    box-shadow: 0 0 15px var(--bully-red);
+    transform: skew(-15deg) translateY(-3px);
+}

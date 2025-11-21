@@ -10,18 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Estilos modulares -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/banner-contact.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/responsive.css">
 
-    <style style="display:none;">
+    <style>
         /* --- VARIABLES Y COLORES --- */
         :root {
             --bully-red: #e31e24;
@@ -623,13 +613,6 @@
 
 <body>
 
-    <!-- LOADER -->
-    <div id="loader">
-        <img src="img/logo.png" alt="Bully Motos" class="loader-logo">
-        <div class="loader-spinner"></div>
-        <p class="loader-text">Cargando...</p>
-    </div>
-
     <header>
         <a href="#hero-section" class="logo-badge">
             <img src="img/logoLargo.png" alt="Bully Motos" class="logo-img">
@@ -814,7 +797,63 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+        // CONFIGURACIÓN MEJORADA DE ANIMACIONES
+        AOS.init({
+            once: false,
+            mirror: true,
+            offset: 120,
+            duration: 800,
+            easing: 'ease-out-back',
+        });
+
+        // SCRIPT PARALLAX MOUSE
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) {
+                const heroSection = document.getElementById('hero-section');
+                const moto = document.getElementById('moto3d');
+
+                const centerX = window.innerWidth / 2;
+                const centerY = window.innerHeight / 2;
+                const mouseX = e.pageX - centerX;
+                const mouseY = e.pageY - centerY;
+
+                const bgMoveX = -mouseX / 40;
+                const bgMoveY = -mouseY / 40;
+                heroSection.style.backgroundPosition = `calc(50% + ${bgMoveX}px) calc(50% + ${bgMoveY}px)`;
+
+                const motoMoveX = mouseX / 25;
+                const motoMoveY = mouseY / 25;
+                moto.style.transform = `translateX(${motoMoveX}px) translateY(${motoMoveY}px)`;
+            }
+        });
+
+        // SCRIPT DEL MODAL (POP-UP)
+        const modal = document.getElementById('bookingModal');
+        const closeBtn = document.getElementById('closeModal');
+        // Seleccionamos todos los botones que deben abrir el modal (Header y Hero)
+        const openBtns = document.querySelectorAll('.open-modal-btn');
+
+        // Añadir evento click a todos los botones de abrir
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita comportamiento por defecto de enlaces
+                modal.classList.add('modal-active');
+            });
+        });
+
+        // Cerrar con la X
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('modal-active');
+        });
+
+        // Cerrar haciendo clic fuera de la caja blanca
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('modal-active');
+            }
+        });
+    </script>
 
 </body>
 

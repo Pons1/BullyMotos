@@ -1,0 +1,80 @@
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo-badge {
+        margin-bottom: 10px;
+    }
+
+    .nav-container {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        font-size: 0.8rem;
+    }
+
+    .btn-header {
+        display: none;
+    }
+
+    .hero {
+        height: auto;
+        padding: 150px 0 80px 0;
+        text-align: center;
+        /* ARREGLADO: Fondo uniforme en móvil */
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), 
+                    url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop');
+        background-position: center center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-bike-3d {
+        height: 250px;
+        width: 100%;
+        margin-top: 30px;
+        background-size: 80%;
+        background-position: center bottom;
+        animation: none;
+        transform: none !important;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-logo-big {
+        width: 250px;
+    }
+
+    .section-header {
+        font-size: 2.2rem;
+    }
+
+    .red-banner {
+        flex-direction: column;
+        gap: 20px;
+        transform: none;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .red-banner > * {
+        transform: none;
+    }
+
+    .contact-section {
+        padding: 30px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+}
