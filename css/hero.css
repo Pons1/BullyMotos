@@ -1,106 +1,106 @@
 /* === HERO SECTION (PORTADA) === */
 .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
-    /* ARREGLADO: Gradiente uniforme sin cuadrado claro */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
-                url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 0;
-    transition: background-position 0.1s linear;
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  /* ARREGLADO: Gradiente uniforme sin cuadrado claro */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0;
+  transition: background-position 0.1s linear;
 }
 
 .hero-container {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 .hero-text {
-    flex: 1;
-    z-index: 2;
-    color: white;
+  flex: 1;
+  z-index: 2;
+  color: white;
 }
 
 .hero-logo-big {
-    width: 350px;
-    max-width: 80%;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 50px rgba(255, 255, 255, 1)) 
-            drop-shadow(0 0 100px rgba(255, 255, 255, 0.8)) 
-            drop-shadow(0 0 150px rgba(255, 255, 255, 0.5));
-    animation: latido 3s infinite;
+  width: 350px;
+  max-width: 80%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 50px rgba(255, 255, 255, 1)) drop-shadow(0 0 100px rgba(255, 255, 255, 0.8))
+    drop-shadow(0 0 150px rgba(255, 255, 255, 0.5));
+  animation: latido 3s infinite;
 }
 
 .hero-subtitle {
-    font-size: 1.6rem;
-    font-weight: 300;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    border-left: 4px solid var(--bully-red);
-    padding-left: 20px;
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  border-left: 4px solid var(--bully-red);
+  padding-left: 20px;
 }
 
 .hero-btn-main {
-    background: linear-gradient(45deg, var(--bully-red), #ff4b50);
-    color: white;
-    padding: 20px 50px;
-    text-decoration: none;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: inline-block;
-    border-radius: 4px;
-    transform: skew(-10deg);
-    transition: all 0.3s;
-    border: 2px solid transparent;
-    box-shadow: 0 10px 30px rgba(227, 30, 36, 0.3);
+  background: linear-gradient(45deg, var(--bully-red), #ff4b50);
+  color: white;
+  padding: 20px 50px;
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  border-radius: 4px;
+  transform: skew(-10deg);
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 30px rgba(227, 30, 36, 0.3);
 }
 
 .hero-btn-main:hover {
-    transform: skew(-10deg) scale(1.1);
-    box-shadow: 0 0 30px var(--bully-red);
+  transform: skew(-10deg) scale(1.1);
+  box-shadow: 0 0 30px var(--bully-red);
 }
 
 .hero-bike-3d {
-    flex: 1.5;
-    z-index: 3;
-    background-image: url('https://purepng.com/public/uploads/large/purepng.com-grey-yamaha-yzf-r6-motorcyclemotorcyclemotorbikeyamaha-yzf-r6yamaha-sport-bike-65152121034269h8u.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 600px;
-    filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.8));
-    animation: flotar 4s ease-in-out infinite;
-    transition: transform 0.08s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  flex: 1.5;
+  z-index: 3;
+  background-image: url('https://purepng.com/public/uploads/large/purepng.com-grey-yamaha-yzf-r6-motorcyclemotorcyclemotorbikeyamaha-yzf-r6yamaha-sport-bike-65152121034269h8u.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 600px;
+  filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.8));
+  animation: flotar 4s ease-in-out infinite;
+  transition: transform 0.08s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes flotar {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes latido {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.03);
-    }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
 }

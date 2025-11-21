@@ -37,12 +37,15 @@ BullyMotos/
 ## 🚀 Cómo usar
 
 ### Servidor local (desarrollo):
+
 ```powershell
 python -m http.server 8000
 ```
+
 Luego abre: http://localhost:8000
 
 ### Subir a GitHub Pages:
+
 1. Ve a Settings > Pages en tu repositorio
 2. Selecciona: Deploy from branch > master > / (root)
 3. Tu web estará en: https://pons1.github.io/BullyMotos/
